@@ -49,7 +49,7 @@ while True:
         lcd.write_string(str("Current: %s" % (temp)))
         sleep(1)
         lcd.cursor_pos = (1, 0)
-        lcd.write_string(str("%s:%s" % (lastUpdate.hour, lastUpdate.min)))
+        lcd.write_string(str("%s" % (lastUpdate.isoformat() == 'HH:mm')))
 
         # Sleep and incriment counter
         counter =+ currentTimer

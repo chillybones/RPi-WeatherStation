@@ -1,7 +1,7 @@
 from Weather.OpenWeather import OpenWeatherMap, WeatherJSONParser
 import requests
 from time import sleep
-import datetime
+from datetime import datetime
 import RPi.GPIO as GPIO
 from RPLCD.gpio import CharLCD
 
@@ -10,6 +10,7 @@ weather = OpenWeatherMap("0f91d7c44a3055005b85971dd63efeef")
 parse = WeatherJSONParser()
 
 # Create the LCD object. Pin numbers can be adjusted to fit any GPIO configuration
+GPIO.setwarnings(False)
 lcd = CharLCD(pin_rs=15, pin_rw=18, pin_e=16, pins_data=[8, 10, 11, 12],
               numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
 
@@ -35,7 +36,7 @@ while True:
     # Loop through the current weather forecase until it is time for 5 day update
     while counter < tenDayTimer:
         currentWeather = parse.CurrentParse(weather.GetWeatherByZip_Imperial("80233"))
-        lastUpdate = datetime.datetime
+        lastUpdate = datetime.now()
 
         print(currentWeather)
         print("Last update at: %s" % lastUpdate)

@@ -14,6 +14,9 @@ GPIO.setwarnings(False)
 lcd = CharLCD(pin_rs=15, pin_rw=18, pin_e=16, pins_data=[8, 10, 11, 12],
               numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
 
+# Allow initialize
+sleep(1)
+
 # Do some screen maintainence
 lcd.clear()
 sleep(1)
@@ -41,7 +44,7 @@ while True:
         lastUpdate = datetime.now()
 
         print(currentWeather)
-        print("Last update at: %s" % lastUpdate)
+        print("Last update at: %s" % lastUpdate.isoformat() == 'HH:mm')
 
         temp = currentWeather.get('CurrentTemp')
 

@@ -17,9 +17,9 @@ lcd = CharLCD(pin_rs=15, pin_rw=18, pin_e=16, pins_data=[8, 10, 11, 12],
 # Allow initialize
 sleep(1)
 
-# Do some screen maintainence
+# Do some screen maintainence and wait for the command to execute
 lcd.clear()
-sleep(1)
+sleep(5)
 
 # Determine read times - this project will be based off of 30m current weather/6h 10 day forecast updates
 # 60 seconds * 30 minutes

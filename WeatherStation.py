@@ -41,7 +41,7 @@ while True:
 
         # Only need one time stamp between both pulls becuase the 5-day and the current will be updated at the same
         # time when needed.
-        timeStamp = datetime.strptime(str(datetime.now()), '%Y-%m-%dT%H:%M:%S.%f')
+        timeStamp = datetime.strptime(str(datetime.now()), '%Y-%m-%d %H:%M:%S.%f')
         lastUpdate = timeStamp.strptime('%H:%M')
 
         print(currentWeather)

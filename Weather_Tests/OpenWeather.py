@@ -1,4 +1,4 @@
-# This is a python library for intereacting with the OpenWeatherMap API
+# This is a python library for interacting with the OpenWeatherMap API
 
 # All responses will be returned in JSON format
 
@@ -51,5 +51,5 @@ class WeatherJSONParser():
             hiTemp.append((day.get("main").get("temp_max")))
 
         # Each set of 8 is one total day
-        for date, hi, lo in zip(date, hiTemp, loTemp):
+        #for date, hi, lo in zip(date, hiTemp, loTemp):
 

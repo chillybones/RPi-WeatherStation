@@ -16,4 +16,5 @@ while(True):
         response = weather.GetWeatherByZip_Imperial("80202")
         # Sleep for 10 seconds before running again
         totalSeconds =+ 10
+        print(response)
         sleep(10)

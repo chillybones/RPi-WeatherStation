@@ -9,12 +9,15 @@ while(True):
     totalSeconds = 0
 
     # Read the 5 day forecast
-    forecast = weather.GetFiveDayByZip_Imperial("80202")
-    parse.FiveDayParse(forecast)
+    fJSON = weather.GetFiveDayByZip_Imperial("80233")
+    parse.FiveDayParse(fJSON)
 
     while(totalSeconds < 3600):
-        response = weather.GetWeatherByZip_Imperial("80202")
+        wJSON = weather.GetWeatherByZip_Imperial("80233")
+        currentWeather = parse.CurrentParse(wJSON)
+
+        print(currentWeather)
+
         # Sleep for 10 seconds before running again
-        totalSeconds =+ 10
-        print(response)
-        sleep(10)
+        totalSeconds =+ 60
+        sleep(60)

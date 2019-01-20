@@ -40,7 +40,7 @@ class OpenWeatherMap():
 class WeatherJSONParser():
     def FiveDayParse(self, json):
         self.json = json
-        jsonList = json.get("list")
+        jsonList = self.json.get("list")
         hiTemp = []
         loTemp = []
         date = []
@@ -53,3 +53,14 @@ class WeatherJSONParser():
         # Each set of 8 is one total day
         #for date, hi, lo in zip(date, hiTemp, loTemp):
 
+    def CurrentParse(self, json):
+        self.json = json
+
+        currentWeather = {}
+
+        currentWeather['ConditionMain'] = self.json.get('weather')[0].get('main')
+        currentWeather['ConditionDesc'] = self.json.get('weather')[0].get('description')
+        currentWeather['CurrentTemp'] = self.json.get('main').get('temp')
+
+        # Return current weather
+        return currentWeather

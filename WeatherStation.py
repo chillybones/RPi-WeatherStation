@@ -1,6 +1,7 @@
 from Weather.OpenWeather import OpenWeatherMap, WeatherJSONParser
 import requests
 from time import sleep
+import datetime
 import RPi.GPIO as GPIO
 from RPLCD.gpio import CharLCD
 
@@ -34,8 +35,10 @@ while True:
     # Loop through the current weather forecase until it is time for 5 day update
     while counter < tenDayTimer:
         currentWeather = parse.CurrentParse(weather.GetWeatherByZip_Imperial("80233"))
+        lastUpdate = datetime.datetime
 
         print(currentWeather)
+        print("Last update at: %s" % lastUpdate)
 
         # Sleep and incriment counter
         counter =+ currentTimer

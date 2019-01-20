@@ -46,7 +46,10 @@ while True:
         temp = currentWeather.get('CurrentTemp')
 
         lcd.cursor_pos = (0, 0)
-        lcd.write_string(str("Current: %s\n%s" % (temp, lastUpdate.time())))
+        lcd.write_string(str("Current: %s" % (temp)))
+        sleep(1)
+        lcd.cursor_pos = (1, 0)
+        lcd.write_string(str("%s:%s" % (lastUpdate.hour, lastUpdate.min)))
 
         # Sleep and incriment counter
         counter =+ currentTimer

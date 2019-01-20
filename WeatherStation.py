@@ -1,4 +1,4 @@
-from Weather_Tests.OpenWeather import OpenWeatherMap, WeatherJSONParser
+from Weather.OpenWeather import OpenWeatherMap, WeatherJSONParser
 import requests
 from time import sleep
 import RPi.GPIO as GPIO

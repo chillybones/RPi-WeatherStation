@@ -41,10 +41,10 @@ while True:
 
         # Only need one time stamp between both pulls becuase the 5-day and the current will be updated at the same
         # time when needed.
-        lastUpdate = datetime.now()
+        lastUpdate = datetime.strptime(datetime.now(), '%H:%M')
 
         print(currentWeather)
-        print("Last update at: %s" % lastUpdate.isoformat() == 'HH:mm')
+        print("Last update at: %s" % lastUpdate)
 
         temp = currentWeather.get('CurrentTemp')
 
@@ -52,7 +52,7 @@ while True:
         lcd.write_string(str("Current: %s" % (temp)))
         sleep(1)
         lcd.cursor_pos = (1, 0)
-        lcd.write_string(str("%s" % (lastUpdate.isoformat() == 'HH:mm')))
+        lcd.write_string(str("%s" % (lastUpdate)))
 
         # Sleep and incriment counter
         counter =+ currentTimer

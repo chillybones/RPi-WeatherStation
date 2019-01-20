@@ -36,10 +36,18 @@ while True:
     # Loop through the current weather forecase until it is time for 5 day update
     while counter < tenDayTimer:
         currentWeather = parse.CurrentParse(weather.GetWeatherByZip_Imperial("80233"))
+
+        # Only need one time stamp between both pulls becuase the 5-day and the current will be updated at the same
+        # time when needed.
         lastUpdate = datetime.now()
 
         print(currentWeather)
         print("Last update at: %s" % lastUpdate)
+
+        temp = currentWeather.get('CurrentTemp')
+
+        lcd.cursor_pos = (0, 0)
+        lcd.write_string(str("Current: %s" % temp))
 
         # Sleep and incriment counter
         counter =+ currentTimer

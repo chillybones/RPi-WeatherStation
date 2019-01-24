@@ -4,10 +4,14 @@ from time import sleep
 from datetime import datetime
 import RPi.GPIO as GPIO
 from RPLCD.gpio import CharLCD
+from DHTReader.DHT_Read import DHT_Read
 
 # Create weather objects
 weather = OpenWeatherMap("0f91d7c44a3055005b85971dd63efeef")
 parse = WeatherJSONParser()
+
+# Create the DHT object and pass the Pi Pin it is in.
+sensor = DHT_Read(21)
 
 # Create the LCD object. Pin numbers can be adjusted to fit any GPIO configuration
 GPIO.setwarnings(False)

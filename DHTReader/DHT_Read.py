@@ -13,7 +13,7 @@ class DHT_Read():
         self.humid, self.temp = Adafruit_DHT.read_retry(self.sensor, self.pin)
 
         # Print to the console so we know there is a good reading
-        print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temp, humid))
+        print('temp={0:0.1f}*C  humidity={1:0.1f}%'.format(self.temp, self.humid))
 
         # Return dictionary of values
         return {"IndoorTemp": self.temp, "IndoorHumidity": self.humid}

@@ -11,7 +11,7 @@ weather = OpenWeatherMap("0f91d7c44a3055005b85971dd63efeef")
 parse = WeatherJSONParser()
 
 # Create the DHT object and pass the Pi Pin it is in.
-sensor = DHT_Read(21)
+dhtSensor = DHT_Read(21)
 
 # Create the LCD object. Pin numbers can be adjusted to fit any GPIO configuration
 GPIO.setwarnings(False)
@@ -42,6 +42,7 @@ while True:
     # Loop through the current weather forecase until it is time for 5 day update
     while counter < tenDayTimer:
         currentWeather = parse.CurrentParse(weather.GetWeatherByZip_Imperial("80233"))
+        indoorReading = dhtSensor.GetReading()
 
         # Only need one time stamp between both pulls becuase the 5-day and the current will be updated at the same
         # time when needed.
